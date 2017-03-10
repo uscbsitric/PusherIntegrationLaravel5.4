@@ -39,14 +39,15 @@ return [
 
     'connections' => [
 
-        'main' => ['auth_key' => env('PUSHER_KEY'),
-                   'secret'   => env('PUSHER_SECRET'),
-                   'app_id'   => env('PUSHER_APP_ID'),
-                   'options'  => [],
-                   'host'     => null,
-                   'port'     => null,
-                   'timeout'  => null,
-                  ],
+        'main' => [
+            'auth_key' => 'your-auth-key',
+            'secret' => 'your-secret',
+            'app_id' => 'your-app-id',
+            'options' => [],
+            'host' => null,
+            'port' => null,
+            'timeout' => null,
+        ],
 
         'alternative' => [
             'auth_key' => 'your-auth-key',

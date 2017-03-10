@@ -177,6 +177,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+    	/*****
+    	 * Frederick Sandalo Added Libraries
+    	*****/
+    	Vinkla\Pusher\PusherServiceProvider::class,
+    	/*****
+    	 * Frederick Sandalo Added Libraries
+    	*****/
     ],
 
     /*
