@@ -35,25 +35,32 @@ return [
     | configuration has been included, but you may add as many connections as
     | you would like.
     |
+      PUSHER_KEY=a055338bda4b8d846dfc
+      PUSHER_SECRET=f790d5cad6ce3861e970
+      PUSHER_APP_ID=305756
     */
 
     'connections' => [
 
         'main' => [
-            'auth_key' => 'your-auth-key',
-            'secret' => 'your-secret',
-            'app_id' => 'your-app-id',
-            'options' => [],
+            'auth_key' => 'a055338bda4b8d846dfc',
+            'secret' => 'f790d5cad6ce3861e970',
+            'app_id' => '305756',
+            'options' => ['cluster' => 'ap1',
+            		      'ecnrypted' => true 
+                         ],
             'host' => null,
             'port' => null,
             'timeout' => null,
         ],
 
         'alternative' => [
-            'auth_key' => 'your-auth-key',
-            'secret' => 'your-secret',
-            'app_id' => 'your-app-id',
-            'options' => [],
+            'auth_key' => 'a055338bda4b8d846dfc',
+            'secret' => 'f790d5cad6ce3861e970',
+            'app_id' => '305756',
+            'options' => ['cluster' => 'ap1',
+            		      'ecnrypted' => true
+                         ],
             'host' => null,
             'port' => null,
             'timeout' => null,

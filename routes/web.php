@@ -22,7 +22,7 @@ Route::get('/bridge',
 			  $pusher = App::make('pusher');
               $pusher->trigger('test-channel',
                                'test-event',
-                               array('text' => 'Preparing the Pusher Laracon.eu workshop!')
+                               array('text' => 'Preparing the Pusher Laracon.cebu workshop!')
               		          );
               
               exit('testing Pusher Integration with Laravel 5.4');

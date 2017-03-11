@@ -46,7 +46,9 @@ class Repository implements ArrayAccess, ConfigContract
      */
     public function get($key, $default = null)
     {
-        return Arr::get($this->items, $key, $default);
+    	$result = Arr::get($this->items, $key, $default);
+    	
+        return $result;
     }
 
     /**

@@ -96,6 +96,12 @@ class Pusher
      */
     public function __construct($auth_key, $secret, $app_id, $options = array(), $host = null, $port = null, $timeout = null)
     {
+    	$auth_key = env('PUSHER_KEY');
+    	$secret = env('PUSHER_SECRET');
+    	$app_id = env('PUSHER_APP_ID');
+    	$options['cluster'] = env('PUSHER_CLUSTER');
+    	$options['encrypted'] = env('PUSHER_ENCRYPTED') ? true : false;
+    	
         $this->check_compatibility();
 
         /* Start backward compatibility with old constructor **/

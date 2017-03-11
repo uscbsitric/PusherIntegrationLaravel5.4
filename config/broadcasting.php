@@ -1,5 +1,14 @@
 <?php
 
+/****
+var_dump( array('key'    => env('PUSHER_KEY'),
+		        'secret' => env('PUSHER_SECRET'),
+		        'appID'  => env('PUSHER_APP_ID')
+               )
+		);
+exit('frederick debugging here');
+*****/
+
 return [
 
     /*
@@ -15,7 +24,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' => env('BROADCAST_DRIVER', 'pusher'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,13 +35,16 @@ return [
     | to broadcast events to other systems or over websockets. Samples of
     | each available type of connection are provided inside this array.
     |
+      PUSHER_KEY=a055338bda4b8d846dfc
+      PUSHER_SECRET=f790d5cad6ce3861e970
+      PUSHER_APP_ID=305756
     */
 
     'connections' => [
 
         'pusher' => ['driver' => 'pusher',
-                     'key' => env('PUSHER_APP_KEY'),
-                     'secret' => env('PUSHER_APP_SECRET'),
+                     'key'    => env('PUSHER_KEY'),
+                     'secret' => env('PUSHER_SECRET'),
                      'app_id' => env('PUSHER_APP_ID'),
                      'options' => ['cluster'   => 'ap1',
                      		       'encrypted' => true

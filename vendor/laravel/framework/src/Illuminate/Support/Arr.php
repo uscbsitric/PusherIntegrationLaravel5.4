@@ -245,6 +245,7 @@ class Arr
      */
     public static function get($array, $key, $default = null)
     {
+    	$testVariable = 'TestValue';
         if (! static::accessible($array)) {
             return value($default);
         }
