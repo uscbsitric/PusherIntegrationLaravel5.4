@@ -28,3 +28,7 @@ Route::get('/bridge',
               exit('testing Pusher Integration with Laravel 5.4');
 	        }
 	      );
+
+Route::get('/pusherClient',
+		   'PusherClientController@pusherClient'
+		  );
