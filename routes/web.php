@@ -32,3 +32,11 @@ Route::get('/bridge',
 Route::get('/pusherClient',
 		   'PusherClientController@pusherClient'
 		  );
+
+Route::get('/notifications/index',
+		  'PusherClientController@index'
+		 );
+
+Route::post('/notifications/notify',
+		    'PusherClientController@notify'
+		   );
