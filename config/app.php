@@ -181,6 +181,7 @@ return [
     	 * Frederick Sandalo Added Libraries
     	*****/
     	Vinkla\Pusher\PusherServiceProvider::class,
+    	Laravel\Socialite\SocialiteServiceProvider::class,
     	/*****
     	 * Frederick Sandalo Added Libraries
     	*****/
@@ -232,7 +233,14 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+    	
+    	/*****
+    	 * Frederick Sandalo Added Aliases
+    	*****/
+    	'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+    	/*****
+    	 * Frederick Sandalo Added Aliases
+    	*****/
     ],
 
 ];
