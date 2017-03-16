@@ -10,15 +10,53 @@ class ActivityController extends Controller
     public $pusher;
     public $user;
 
+    /*****
     public function __construct(Request $request)
     {
     	$this->pusher = resolve('pusher'); // try and swap this with line 17 code
         //$this->pusher = App::make('pusher');
         //$this->user = $request->session()->get('user'); // by having a user, we can identify who has triggered an activity event
-        $testVariable1 = Session::get('progress');
-        $testVariable2 = 'for debugging only';
+    	//$testVariable4 = $request->session()->get('user2');
+        $testVariable1 = Session::get('user1');
+        $testVariable2 = Session::get('user2');
+        $testVariable3 = Session::get('user3');
+        $testVariable4 = session('user1');
+        $testVariable5 = session('user2');
+        $testVariable6 = session('user3');
+        
+        echo "<pre>";
+        var_dump( array($testVariable1,
+        		        $testVariable2,
+        		        $testVariable4,
+        		        $testVariable5,
+        		        $testVariable6,
+        		        $request->session()->all()
+                       ) 
+        		);
+        exit();
     }
+    *****/
 
+    public function test()
+    {
+    	$testVariable1 = Session::get('user1');
+    	$testVariable2 = Session::get('user2');
+    	$testVariable3 = Session::get('user3');
+    	$testVariable4 = session('user1');
+    	$testVariable5 = session('user2');
+    	$testVariable6 = session('user3');
+    	
+    	echo "<pre>";
+    	var_dump( array($testVariable1,
+    			        $testVariable2,
+    			        $testVariable4,
+    			        $testVariable5,
+    			        $testVariable6
+    	               )
+    			);
+    	exit();
+    }
+    
     /**
      * GET
      * Serve the example activities view

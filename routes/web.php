@@ -48,22 +48,6 @@ Route::get('/auth/github/callback', 'Auth\AuthController@handleProviderCallback'
 Route::get('/activities', 
 		   'ActivityController@index'
 		  );
-
-
-Route::get('/sessionTest',
-		   function()
-		   {
-	         echo "session testing";
-		     Session::put('progress', '5%');
-		     //dd(Session::get('progress'));
-           }
+Route::get('/activities2',
+		   'ActivityController@test'
 		  );
-
-Route::get('/anotherSessionTest', 
-		   function()
-           { 
-	         echo "another session testing";
-	         dd( \App::make('session') );
-	         dd(Session::get('progress') ); 
-           }
-	       );
