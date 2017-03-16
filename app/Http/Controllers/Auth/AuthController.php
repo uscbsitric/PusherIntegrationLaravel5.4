@@ -38,13 +38,15 @@ class AuthController extends Controller
         $user = Socialite::driver('github')->user();
 
         Session::put('user', $user);
+        $request->session()->put('user', $user);
 
-        $redirect = $request->input('redirect');
+        $redirect = $request['redirect'];
         if($redirect)
         {
             return redirect($redirect);
         }
 
+        return redirect('/activities');
         return 'GitHub auth successful. Now navigate to a demo.';
     }
 }
