@@ -40,3 +40,7 @@ Route::get('/notifications/index',
 Route::post('/notifications/notify',
 		    'PusherClientController@notify'
 		   );
+
+
+Route::get('/auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('/auth/github/callback', 'Auth\AuthController@handleProviderCallback');
