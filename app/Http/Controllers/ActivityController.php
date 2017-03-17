@@ -74,10 +74,11 @@ class ActivityController extends Controller
      * @param $id The ID of the activity that has been liked
      */
     public function like(Request $request)
-    {
-    	$likeId = $request['likeId'];
+    {	
+    	$likeId = $request['id'];
+    	$message = $request['text'];
     	$githubUser = session('githubUser');
-    	$activity = ['text'     => 'someone with ID: ' . $githubUser->getNickname() . ' likes this.',
+    	$activity = ['text'     => 'someone with ID: ' . $githubUser->getNickname() . ' likes the status: '. $message,
         		     'username' => $githubUser->getNickname(),
         		     'avatar'   => $githubUser->getAvatar(),
         		     'id'       => str_random(),

@@ -126,15 +126,19 @@
         {
             var activityEl = el.parents('.activity');
             var activityId = activityEl.attr('data-activity-id');
-            sendLike(activityId);
+            var message = activityEl.find(".message-body").text();
+            var elementData = {id: activityId,
+                               text: message
+                              };
+            sendLike(elementData);
         }
     }
 
     // Makes a POST request to the server to indicate an activity being `liked`
-    function sendLike(id)
+    function sendLike(elementData)
     {
-        var data = {likeId: id};
-        $.post('/activities/like', data).success(likeSuccess);
+        //var data = {likeId: id};
+        $.post('/activities/like', elementData).success(likeSuccess);
     }
 
     // Success callback handler for the like POST
