@@ -52,3 +52,6 @@ Route::get('/activities',
 Route::post('/activities/status-update',
 		    'ActivityController@statusUpdate'
 		   );
+Route::post('/activities/like',
+		    'ActivityController@like'
+		   );

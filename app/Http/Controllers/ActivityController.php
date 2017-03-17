@@ -33,7 +33,7 @@ class ActivityController extends Controller
         $activity = ['text' => 'GitHub User: ' . $githubUser->getNickname() . ' has visited the page.',
                      'username' => $githubUser->getNickname(),
                      'avatar' => $githubUser->getAvatar(),
-                     'id' => $githubUser->user['email']
+                     'id' => str_random()
                     ];
 
         // TODO: trigger event
@@ -58,7 +58,7 @@ class ActivityController extends Controller
         $activity = ['text' => $statusText,
         		     'username' => $githubUser->getNickname(),
         		     'avatar' => $githubUser->getAvatar(),
-        		     'id' => $githubUser->user['email']
+        		     'id' => str_random()
                     ];
 
         // TODO: trigger event
@@ -73,14 +73,21 @@ class ActivityController extends Controller
      * Like an exiting activity
      * @param $id The ID of the activity that has been liked
      */
-    public function like($id)
+    public function like(Request $request)
     {
+    	$likeId = $request['likeId'];
+    	$githubUser = session('githubUser');
+    	$activity = ['text'     => 'someone with ID: ' . $githubUser->getNickname() . ' likes this.',
+        		     'username' => $githubUser->getNickname(),
+        		     'avatar'   => $githubUser->getAvatar(),
+        		     'id'       => str_random(),
+    			     'likedActivityId' => $likeId
+                    ];
+
         // TODO: trigger event
     	$this->pusher->trigger('activities',             //channel
     			               'status-update-liked',    // event  // On the 'activities' channel trigger a 'status-update-liked' event
-    			               array('text' => 'someone with ID: ' . $id . ' likes this.',
-    			               		 'likedActivityId' => $id
-    			                    )
+    			               $activity
     			              );
     }
 }

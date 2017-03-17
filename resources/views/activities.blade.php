@@ -133,7 +133,8 @@
     // Makes a POST request to the server to indicate an activity being `liked`
     function sendLike(id)
     {
-        $.post('/activities/like/' + id).success(likeSuccess);
+        var data = {likeId: id};
+        $.post('/activities/like', data).success(likeSuccess);
     }
 
     // Success callback handler for the like POST
@@ -165,6 +166,21 @@
         addActivity('status-update', data);
     }
 
+    // Handle the status-update-liked event
+    function addLike(data)
+    {
+    	addActivity('status-update-liked', data);
+
+    	var likeCount = parseInt( $("div[data-activity-id='"+data.likedActivityId+"'] .like-count").text(), 10) + 1;
+
+        if(isNaN(likeCount))
+        {
+          likeCount = 1;
+        }
+
+        $("div[data-activity-id='"+data.likedActivityId+"'] .like-count").text(likeCount);
+    }
+
     $(init);
 
     /***********************************************/
@@ -190,6 +206,7 @@
     // and pass in a callback handler that adds an
     // activitiy to the UI using they
     // addActivity(type, data) function
+    channel.bind('status-update-liked', addLike);
     
 
 </script>
