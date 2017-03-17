@@ -40,7 +40,7 @@
 
 <section class="blue-gradient-background">
     <div class="chat-app light-grey-blue-background">
-        <form id="status_form" action="/activities/status-update" method="post">
+        <form id="status_form" action="/activities/status-update" method="post" style="overflow: hidden">
             <div class="action-bar">
                 <input id="status_text" name="status_text" class="input-message col-xs-9" placeholder="What's your status?" />
             </div>
@@ -160,7 +160,8 @@
     }
 
     // Handle the status update event
-    function addStatusUpdate(data) {
+    function addStatusUpdate(data)
+    {
         addActivity('status-update', data);
     }
 
@@ -176,18 +177,20 @@
            );
 
     // TODO: Subscribe to the channel
-    var channel = pusher.subscribe('notifications'); // subscribe to the "notifications" channel
+    var channel = pusher.subscribe('activities'); // subscribe to the "activities" channel
 
     // TODO: bind to each event on the channel
     // and assign the appropriate handler
     // e.g. 'user-visit' and 'addUserVisit'
-    //////channel.bind('new-notification', showNotification);
-    //////channel.bind('new-notification', showNotification);
+    channel.bind('user-visit', addUserVisit);
+
+    channel.bind('new-status-update', addStatusUpdate)
     
     // TODO: bind to the 'status-update-liked' event,
     // and pass in a callback handler that adds an
     // activitiy to the UI using they
     // addActivity(type, data) function
+    
 
 </script>
 

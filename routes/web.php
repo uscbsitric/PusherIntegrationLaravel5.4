@@ -48,6 +48,7 @@ Route::get('/auth/github/callback', 'Auth\AuthController@handleProviderCallback'
 Route::get('/activities', 
 		   'ActivityController@index'
 		  );
-Route::get('/activities2',
-		   'ActivityController@test'
-		  );
+
+Route::post('/activities/status-update',
+		    'ActivityController@statusUpdate'
+		   );

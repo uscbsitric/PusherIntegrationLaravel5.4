@@ -35,19 +35,19 @@ class AuthController extends Controller
      */
     public function handleProviderCallback(Request $request)
     {
-        $user = Socialite::driver('github')->user();
+        $githubUser = Socialite::driver('github')->user();
 
-        Session::put('user1', $user);
-        $request->session()->put('user2', $user);
+        //Session::put('user1', $user);
+        //$request->session()->put('user2', $user);
         /////return redirect('/activities')->with('user3', $user);
+        session(['githubUser' => $githubUser]);
 
         $redirect = $request['redirect'];
         if($redirect)
         {
-            /////return redirect($redirect);
+            return redirect($redirect);
         }
 
-        /////return redirect('/activities');
-        return 'GitHub auth successful. Now navigate to a demo.';
+        return redirect('/activities');
     }
 }
