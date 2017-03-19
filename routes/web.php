@@ -59,3 +59,6 @@ Route::post('/activities/like',
 Route::get('/chat',
 		   'ChatController@index'
 		  );
+Route::post('/chat/message',
+		    'ChatController@message'
+		   );

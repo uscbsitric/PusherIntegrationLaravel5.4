@@ -18,7 +18,6 @@ class ChatController extends Controller
     public function __construct()
     {
         $this->pusher = App::make('pusher');
-        $this->user = Session::get('user');
         $this->chatChannel = self::DEFAULT_CHAT_CHANNEL;
     }
 
@@ -27,9 +26,11 @@ class ChatController extends Controller
      *****/
     public function index()
     {
+    	$this->user = session('githubUser');
+
         if(!$this->user)
         {
-            return redirect('auth/github?redirect=/chat');
+          return redirect('auth/github?redirect=/chat');
         }
 
         return view('chat', ['chatChannel' => $this->chatChannel]);
@@ -41,12 +42,17 @@ class ChatController extends Controller
      */
     public function message(Request $request)
     {
-        $message = ['text' => e($request->input('chat_text')),
+    	$this->user = session('githubUser');
+
+        $message = ['text' => $request['chat_text'],
                     'username' => $this->user->getNickname(),
                     'avatar' => $this->user->getAvatar(),
                     'timestamp' => (time()*1000)
                    ];
 
-        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
+        $this->pusher->trigger($this->chatChannel, // channel 
+        		              'new-message',       // event
+        		               $message            // data
+        		              );
     }
 }
