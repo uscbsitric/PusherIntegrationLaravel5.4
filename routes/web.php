@@ -55,3 +55,7 @@ Route::post('/activities/status-update',
 Route::post('/activities/like',
 		    'ActivityController@like'
 		   );
+
+Route::get('/chat',
+		   'ChatController@index'
+		  );
