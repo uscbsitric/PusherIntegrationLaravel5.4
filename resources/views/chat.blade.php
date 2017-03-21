@@ -167,6 +167,10 @@
 		
 			var pusher = new Pusher('{{env("PUSHER_KEY")}}',
 			                        {
+				                      authEndpoint: '/chat/auth',
+				                      auth: {headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				                                      }
+				                            },
 		                              cluster: '{{env("PUSHER_CLUSTER")}}',
 		                              encrypted: true
 			                        }

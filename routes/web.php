@@ -62,3 +62,7 @@ Route::get('/chat',
 Route::post('/chat/message',
 		    'ChatController@message'
 		   );
+Route::post('/chat/auth',
+		    'ChatController@auth'
+		   );
+
