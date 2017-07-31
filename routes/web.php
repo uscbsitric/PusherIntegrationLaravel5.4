@@ -9,6 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+| This is the tutorials I based this entire project on: https://pusher-community.github.io/real-time-laravel/index.html
 */
 
 Route::get('/', function () {
